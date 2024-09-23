@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_layout"
+                android:text="Printer Gray"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <RadioGroup
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textView1"
+                android:layout_toRightOf="@+id/textView1"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:textSize="@dimen/size_text"
+                    android:text="LIGHT" />
+
+
+                <RadioButton
+                    android:id="@+id/rb_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_text"
+                    android:text="NORMAL" />
+
+                <RadioButton
+                    android:id="@+id/rb_strong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_text"
+                    android:text="STRONG" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_battery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_layout"
+                android:text="Battery Level:100%, Battery Voltage:8338V"
+                android:textColor="@color/light_blue"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_layout"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_printer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_printer" />
+
+                <Button
+                    android:id="@+id/btn_printerList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_printer_list" />
+
+                <Button
+                    android:id="@+id/btn_printerCustomFont"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_printer_custom_font" />
+
+                <Button
+                    android:id="@+id/btn_printerQrCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_printer_qrcode" />
+
+                <Button
+                    android:id="@+id/btn_printTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_printer_table" />
+
+                <Button
+                    android:id="@+id/btn_printHTML"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_printer_html" />
+
+                <Button
+                    android:id="@+id/btn_setPrintTicket"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_printer_set_ticket_print" />
+
+                <Button
+                    android:id="@+id/btn_setPrintTag"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_printer_set_tag_print" />
+
+                <Button
+                    android:id="@+id/btn_tagLocate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_printer_tag_locate" />
+
+                <Button
+                    android:id="@+id/btn_printTag1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_printer_tag1" />
+
+                <Button
+                    android:id="@+id/btn_printTag2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_printer_tag2" />
+
+                <Button
+                    android:id="@+id/btn_printBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="PRINT BLACK" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

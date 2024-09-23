@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_layout"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_layout"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_open"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/btn_ntag_card_open"
+                        android:textSize="@dimen/size_text" />
+
+                    <Button
+                        android:id="@+id/btn_close"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/btn_ntag_card_close"
+                        android:textSize="@dimen/size_text" />
+
+                    <Button
+                        android:id="@+id/btn_read"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/btn_ntag_card_read"
+                        android:textSize="@dimen/size_text" />
+
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_tip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_layout"
+                        android:text=""
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/size_text">
+
+                    </TextView>
+                </ScrollView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

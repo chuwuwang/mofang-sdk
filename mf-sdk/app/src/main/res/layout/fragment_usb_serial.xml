@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_layout"
+                android:text="@string/title_serial_port_name"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_usbName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_layout"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:drawablePadding="@dimen/margin_layout"
+                    android:gravity="center|left"
+                    android:hint="Like ttyUSB0"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:padding="@dimen/margin_layout"
+                    android:text="ttyUSB0"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/size_text" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_layout"
+                android:text="@string/title_serial_port_input"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_layout"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:drawablePadding="@dimen/margin_layout"
+                    android:gravity="center|left"
+                    android:hint="Input Data"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:padding="@dimen/margin_layout"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/size_text" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_layout"
+                android:text="@string/title_serial_port_receive"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_recv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_layout"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:drawablePadding="@dimen/margin_layout"
+                    android:enabled="false"
+                    android:gravity="center|left"
+                    android:hint=""
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:padding="@dimen/margin_layout"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/size_text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_layout"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_open"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_serial_port_open" />
+
+                <Button
+                    android:id="@+id/btn_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_serial_port_send" />
+
+                <Button
+                    android:id="@+id/btn_close"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_serial_port_close" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_layout"
+                    android:text="@string/tip_serial_port"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/size_tip">
+
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_layout"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_layout"
+                    android:text="@string/title_emv_param_aid_manager"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/size_text">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_downloadAID"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_download_aid" />
+
+                    <Button
+                        android:id="@+id/btn_getAID"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_get_aid" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_clearAID"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_clear_aid" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_layout"
+                    android:text="@string/title_emv_param_capk_manager"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/size_text">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_downloadCAPK"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_download_capk" />
+
+                    <Button
+                        android:id="@+id/btn_getCAPK"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_get_capk" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_clearCAPK"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_clear_capk" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_layout"
+                    android:text="@string/title_emv_param_black_card_manager"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/size_text">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_downloadBalckCard"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_download_black_card" />
+
+                    <Button
+                        android:id="@+id/btn_getBlackCard"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_get_black_card" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_clearBlackCard"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_clear_black_card" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_downloadBlackCardHash"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_download_black_card_hash" />
+
+                    <Button
+                        android:id="@+id/btn_getBlackCardHash"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_get_black_card_hash" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_clearBlackCardHash"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_clear_black_card_hash" />
+
+                    <Button
+                        android:id="@+id/btn_deleteBlackCardHash"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="@string/btn_emv_param_delete_black_card_hash" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_downloadBlackCardMac"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="DOWNLOAD BLACK CARD MAC" />
+
+                    <Button
+                        android:id="@+id/btn_getBlackCardMac"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="GET BLACK CARD MAC" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_layout"
+                android:text="@string/title_emv_param_black_cert_manager"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_downloadBlackCert"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_emv_param_download_black_cert" />
+
+                <Button
+                    android:id="@+id/btn_clearBlackCert"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_emv_param_clear_black_cert" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_layout"
+                android:text="@string/title_emv_param_dynamic_limit_manager"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_downloadDynamicLimit"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_emv_param_download_dynamic_limit" />
+
+                <Button
+                    android:id="@+id/btn_clearDynamicLimit"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/btn_emv_param_clear_dynamic_limit" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_layout"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

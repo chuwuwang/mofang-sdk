@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="text_size_13">13dp</dimen>
+    <dimen name="text_size_15">15dp</dimen>
+    <dimen name="text_size_23">23dp</dimen>
+    <dimen name="text_size_tabLayout">16dp</dimen>
+    <dimen name="left_content_width">10dp</dimen>
+    <dimen name="right_content_width">10dp</dimen>
+    <dimen name="title_height">60dp</dimen>
+    <dimen name="btn_height">30dp</dimen>
+
+    <dimen name="text_size_micro">8sp</dimen>
+    <dimen name="text_size_lmicro">10sp</dimen>
+    <dimen name="font_size_small">14sp</dimen>
+    <dimen name="font_size_medium">18sp</dimen>
+    <dimen name="font_size_large">22sp</dimen>
+    <dimen name="font_size_xlarge">26sp</dimen>
+    <dimen name="font_size_xxlarge">30sp</dimen>
+    <dimen name="font_title">20sp</dimen>
+
+    <dimen name="font_size_xxxlarge">50sp</dimen>
+    <dimen name="font_size_cash">40sp</dimen>
+
+    <dimen name="head_height">50sp</dimen>
+    <dimen name="size_text">16sp</dimen>
+    <dimen name="size_tip">14sp</dimen>
+
+    <dimen name="margin">10sp</dimen>
+    <dimen name="marginTop_small">5sp</dimen>
+    <dimen name="marginLeft_small">5sp</dimen>
+    <dimen name="marginRight_small">5sp</dimen>
+    <dimen name="marginBottom_small">5sp</dimen>
+    <dimen name="marginTop_middle">15sp</dimen>
+    <dimen name="marginLeft_middle">15sp</dimen>
+    <dimen name="marginRight_middle">15sp</dimen>
+    <dimen name="marginBottom_middle">15sp</dimen>
+    <dimen name="marginTop_large">35sp</dimen>
+    <dimen name="marginLeft_large">35sp</dimen>
+    <dimen name="marginRight_large">35sp</dimen>
+    <dimen name="marginBottom_large">35sp</dimen>
+    <dimen name="marginLeft_xlarge">80sp</dimen>
+    <dimen name="marginRight_xlarge">80sp</dimen>
+    <dimen name="marginTop_xlarge">80sp</dimen>
+    <dimen name="marginBottom_xlarge">80sp</dimen>
+    <dimen name="marginBottom_button">50sp</dimen>
+    <dimen name="margin_layout">10dp</dimen>
+
+</resources>

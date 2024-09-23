@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_layout"
+                android:text="Input Test Info"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/font_size_small">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_testTimes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_layout"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:drawablePadding="@dimen/margin_layout"
+                    android:gravity="center|left"
+                    android:hint="Times"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="8"
+                    android:padding="@dimen/margin_layout"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/font_size_small" />
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_testInterval"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_layout"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:drawablePadding="@dimen/margin_layout"
+                    android:gravity="center|left"
+                    android:hint="Interval(ms)"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="8"
+                    android:padding="@dimen/margin_layout"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/font_size_small" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_layout"
+                android:text="Input Server Info"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/font_size_small">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_ip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_layout"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:drawablePadding="@dimen/margin_layout"
+                    android:gravity="center|left"
+                    android:hint="IP"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:padding="@dimen/margin_layout"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/font_size_small" />
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_port"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_layout"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:drawablePadding="@dimen/margin_layout"
+                    android:gravity="center|left"
+                    android:hint="Port"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:padding="@dimen/margin_layout"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/font_size_small" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_start"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="START" />
+
+                <Button
+                    android:layout_margin="5dp"
+                    android:id="@+id/btn_stop"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/size_text"
+                    android:text="STOP" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_currentTimes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/title_test_current_count" />
+
+                <TextView
+                    android:id="@+id/tv_successTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/title_test_success_count" />
+
+                <TextView
+                    android:id="@+id/tv_failTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/size_text"
+                    android:text="@string/title_test_fail_count"
+                    android:textColor="@color/red" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_failList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/red" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text=""
+                android:textSize="@dimen/size_tip" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

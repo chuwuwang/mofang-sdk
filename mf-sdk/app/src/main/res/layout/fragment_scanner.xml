@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textView1"
+                android:layout_marginLeft="21dp"
+                android:layout_toRightOf="@+id/textView1"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_deke_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:textSize="@dimen/size_text"
+                    android:text="DEKE CAMERA" />
+
+
+                <RadioButton
+                    android:id="@+id/rb_infrared"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_text"
+                    android:text="E470/E480" />
+
+                <RadioButton
+                    android:id="@+id/rb_zebra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_text"
+                    android:text="ZEBRA SE4710" />
+
+                <RadioButton
+                    android:id="@+id/rb_zxing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_text"
+                    android:text="ZXING CAMERA" />
+
+                <RadioButton
+                    android:id="@+id/rb_hd_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_text"
+                    android:text="HD CAMERA" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_layout"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_scan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/font_size_medium"
+                    android:text="@string/menu_scanner" />
+
+                <Button
+                    android:id="@+id/btn_keep_scan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="@dimen/font_size_medium"
+                    android:text="KEEP SCAN" />
+            </LinearLayout>
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text=""
+                    android:textSize="@dimen/size_text" />
+
+            </ScrollView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

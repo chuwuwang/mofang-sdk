@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textView1"
+                android:layout_marginLeft="21dp"
+                android:layout_toRightOf="@+id/textView1"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_psamSlot1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="PSAM SLOT1"
+                    android:textSize="@dimen/size_text" />
+
+                <RadioButton
+                    android:id="@+id/rb_psamSlot2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PSAM SLOT2"
+                    android:textSize="@dimen/size_text" />
+
+                <RadioButton
+                    android:id="@+id/rb_psamSlot3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PSAM SLOT3"
+                    android:textSize="@dimen/size_text"
+                    android:visibility="gone" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_layout"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_psamCard"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_psam_card"
+                    android:textSize="@dimen/size_text" />
+
+            </LinearLayout>
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text=""
+                    android:textSize="@dimen/size_text" />
+
+            </ScrollView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
