@@ -7,12 +7,9 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,9 +20,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
-import com.morefun.yapi.ServiceResult;
 import com.morefun.ysdk.sample.MyApplication;
 import com.morefun.ysdk.sample.R;
+import com.morefun.ysdk.sample.fragment.AT24CxxCardFragment;
 import com.morefun.ysdk.sample.fragment.BeepFragment;
 import com.morefun.ysdk.sample.fragment.CpuCardFragment;
 import com.morefun.ysdk.sample.fragment.DUKPTFragment;
@@ -103,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
             getStringValue(R.string.menu_emulate_card),
             getStringValue(R.string.menu_usb_serial),
             getStringValue(R.string.menu_ped),
-            getStringValue(R.string.menu_TPM)
+            getStringValue(R.string.menu_TPM),
+            getStringValue(R.string.menu_at24cxx)
     };
 
     private static HashMap<String, Fragment> hashMap = new HashMap<>();
@@ -143,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
         hashMap.put(tabs[25], new UsbSerialFragment());
         hashMap.put(tabs[26], new PedFragment());
         hashMap.put(tabs[27], new TpmFragment());
+        hashMap.put(tabs[28], new AT24CxxCardFragment());
     }
 
     @Override
@@ -262,5 +261,10 @@ public class MainActivity extends AppCompatActivity {
             Log.e(TAG, "Some permissions are not allowed exit!");
             //finish();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        System.exit(0);
     }
 }

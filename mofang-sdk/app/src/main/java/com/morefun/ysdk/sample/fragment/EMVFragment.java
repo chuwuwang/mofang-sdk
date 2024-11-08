@@ -195,6 +195,12 @@ public class EMVFragment extends Fragment {
                 });
             }
 
+            /**
+             *
+             * @param isOnlinePin
+             * @param offlinePinType  3:offline pin normal 2:offline pin again 1:offline pin last
+             * @throws RemoteException
+             */
             @Override
             public void onCardHolderInputPin(boolean isOnlinePin, int offlinePinType) throws RemoteException {
                 showResult("IS ONLINE PIN:" + isOnlinePin);
@@ -248,9 +254,10 @@ public class EMVFragment extends Fragment {
                 if (retCode == ServiceResult.Success) {
                     startTick = System.currentTimeMillis();
                     showResult("ON GET CARD RESULT:" + retCode);
+                    // 7: TAP card 1:DIP card
                     showResult("CARD TYPE:" + (bundle.getInt(ICCSearchResult.CARDOTHER)));
                 } else {
-                    showResult("READ CARD FAIL");
+                    showResult("READ CARD FAIL: " + retCode);
                     endEMV();
                 }
             }
@@ -300,26 +307,10 @@ public class EMVFragment extends Fragment {
             public void onRupayCallback(int type, Bundle bundle) throws RemoteException {
                 byte[] data = bundle.getByteArray(EmvRupayCallback.RUPAY_DATA_OUT);
 
-                if (type == EmvRupayCallback.TYPE_TORN_RECORD_MISMATCH) {
-                    Bundle ret = new Bundle();
+                Bundle ret = new Bundle();
 
-                    ret.putInt(EmvRupayCallback.KEY_RET_CODE, 0);
-                    DeviceHelper.getEmvHandler().onSetRupayCallback(type, ret);
-                } else if (type == EmvRupayCallback.TYPE_TAA_AC_TYPE) {
-                    Bundle ret = new Bundle();
-
-                    ret.putInt(EmvRupayCallback.KEY_RET_CODE, 0);
-                    DeviceHelper.getEmvHandler().onSetRupayCallback(type, ret);
-                } else if (type == EmvRupayCallback.TYPE_SET_SERVICE_ID) {
-                    Bundle ret = new Bundle();
-
-                    ret.putInt(EmvRupayCallback.KEY_RET_CODE, 1);
-                    ret.putByteArray(EmvRupayCallback.KEY_DATA, new byte[] {0x01, 0x02});
-
-                    DeviceHelper.getEmvHandler().onSetRupayCallback(type, ret);
-                } else if (type == EmvRupayCallback.TYPE_GET_CARD_HASH) {
-
-                }
+                ret.putInt(EmvRupayCallback.KEY_RET_CODE, 0);
+                DeviceHelper.getEmvHandler().onSetRupayCallback(type, ret);
             }
 
             @Override

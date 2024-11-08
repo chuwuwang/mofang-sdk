@@ -18,6 +18,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.RemoteException;
+import android.provider.Settings;
 import android.telephony.CellIdentityCdma;
 import android.telephony.CellIdentityGsm;
 import android.telephony.CellIdentityLte;
@@ -84,7 +85,8 @@ public class DeviceFragment extends Fragment {
             R.id.btn_force_sleep, R.id.btn_sleep_time, R.id.btn_enable_full_key, R.id.btn_disable_full_key,
             R.id.btn_switch_device, R.id.btn_switch_host, R.id.btn_reboot, R.id.btn_power_off,
             R.id.btn_autoStartAppEnable, R.id.btn_autoStartAppDisable, R.id.btn_kioskEnable, R.id.btn_kioskDisable, R.id.btn_setLauncher,
-            R.id.btn_enableNaviBar, R.id.btn_disableNaviBar,R.id.btn_auxLcd})
+            R.id.btn_enableNaviBar, R.id.btn_disableNaviBar, R.id.btn_auxLcd, R.id.btn_openRecorder, R.id.btn_closeRecorder,
+            R.id.btn_openNFC, R.id.btn_closeNFC})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_deviceInfo:
@@ -173,6 +175,18 @@ public class DeviceFragment extends Fragment {
                 break;
             case R.id.btn_auxLcd:
                 showAuxLcdDialog(getActivity());
+                break;
+            case R.id.btn_openRecorder:
+                openRecorder();
+                break;
+            case R.id.btn_closeRecorder:
+                closeRecorder();
+                break;
+            case R.id.btn_openNFC:
+                openNFC();
+                break;
+            case R.id.btn_closeNFC:
+                closeNFC();
                 break;
         }
     }
@@ -364,6 +378,7 @@ public class DeviceFragment extends Fragment {
             e.printStackTrace();
         }
     }
+
     private final String ACTION_USB_HOST = "com.morefun.usbhost";
     private final String ACTION_USB_DEVICE = "com.morefun.usbdevice";
 
@@ -659,11 +674,11 @@ public class DeviceFragment extends Fragment {
 
     public void showAuxLcdDialog(Activity activity) {
         AlertDialog dialog = new AlertDialog.Builder(activity)
-            .setTitle("Aux Lcd")
-            .setView(R.layout.dialog_auxlcd)
-            .setCancelable(false)
-            .setNegativeButton(activity.getString(R.string.tip_cancel), null)
-            .create();
+                .setTitle("Aux Lcd")
+                .setView(R.layout.dialog_auxlcd)
+                .setCancelable(false)
+                .setNegativeButton(activity.getString(R.string.tip_cancel), null)
+                .create();
         dialog.show();
 
         ImageView iv_show = dialog.findViewById(R.id.iv_show);
@@ -690,7 +705,7 @@ public class DeviceFragment extends Fragment {
         });
     }
 
-    private Bitmap createBgBitmap(int color){
+    private Bitmap createBgBitmap(int color) {
         int width = 320;
         int height = 172;
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
@@ -706,12 +721,12 @@ public class DeviceFragment extends Fragment {
      * textColor: Text Color
      * horizontalGravity: Horizontal Gravity, Support Gravity.LEFT, Gravity.CENTER, Gravity.RIGHT
      * verticalGravity: Vertical Gravity, Support Gravity.TOP, Gravity.CENTER, Gravity.BOTTOM
-     * */
-    private Bitmap createBitmapTxt(int bgColor, String msg,int textSize, int textColor, int horizontalGravity,int verticalGravity){
+     */
+    private Bitmap createBitmapTxt(int bgColor, String msg, int textSize, int textColor, int horizontalGravity, int verticalGravity) {
         Bitmap bitmap = Bitmap.createBitmap(320, 172, Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(bitmap);
 
-        Rect rect = new Rect(0,0,320,172);
+        Rect rect = new Rect(0, 0, 320, 172);
         Paint rectPaint = new Paint();
         rectPaint.setColor(bgColor);
         rectPaint.setStyle(Paint.Style.FILL);
@@ -724,31 +739,31 @@ public class DeviceFragment extends Fragment {
 
         float textWidth = textPaint.measureText(msg); //计算文本宽度
         Rect bound = new Rect();
-        textPaint.getTextBounds(msg,0,msg.length(),bound);
+        textPaint.getTextBounds(msg, 0, msg.length(), bound);
         int textHeight = bound.height();//计算文本高度
 
         float x = 0;
         float y = 0;
-        switch (horizontalGravity){
+        switch (horizontalGravity) {
             case Gravity.LEFT:
                 x = 0;
                 break;
             case Gravity.CENTER:
-                x = canvas.getWidth()/2 - textWidth/2;
+                x = canvas.getWidth() / 2 - textWidth / 2;
                 break;
             case Gravity.RIGHT:
                 x = canvas.getWidth() - textWidth;
                 break;
         }
-        switch (verticalGravity){
+        switch (verticalGravity) {
             case Gravity.TOP:
                 y = textHeight;
                 break;
             case Gravity.CENTER:
-                y = canvas.getHeight()/2 + textHeight/2;
+                y = canvas.getHeight() / 2 + textHeight / 2;
                 break;
             case Gravity.BOTTOM:
-                y = canvas.getHeight() - textHeight/4;
+                y = canvas.getHeight() - textHeight / 4;
                 break;
         }
 
@@ -757,11 +772,11 @@ public class DeviceFragment extends Fragment {
     }
 
     /**
-     *  note
-     *  To display an image, the following 3 steps must be performed
-     *  Image format requirements: bmp
-     *  Image size requirements: 320*172
-     * */
+     * note
+     * To display an image, the following 3 steps must be performed
+     * Image format requirements: bmp
+     * Image size requirements: 320*172
+     */
     private void showAuxLcdBitmap(Bitmap bitmap) {
         //step 1
         showAuxLcdLight();
@@ -772,8 +787,8 @@ public class DeviceFragment extends Fragment {
     }
 
     /**
-     *  Load Images
-     * */
+     * Load Images
+     */
     private void showAuxLcd(Bitmap bitmap) {
         try {
             Bundle bundle = new Bundle();
@@ -786,8 +801,8 @@ public class DeviceFragment extends Fragment {
     }
 
     /**
-     *  Startup screen
-     * */
+     * Startup screen
+     */
     private void showAuxLcdLight() {
         try {
             Bundle bundle = new Bundle();
@@ -799,8 +814,8 @@ public class DeviceFragment extends Fragment {
     }
 
     /**
-     *  screen refresh
-     * */
+     * screen refresh
+     */
     private void showAuxLcdFlush() {
         try {
             Bundle bundle = new Bundle();
@@ -812,12 +827,48 @@ public class DeviceFragment extends Fragment {
     }
 
     /**
-     *  Off screen
-     * */
+     * Off screen
+     */
     private void closeAuxLcd() {
         try {
             Bundle bundle = new Bundle();
             bundle.putBoolean(DeviceInfoConstrants.CLOSE_AUXLCD, true);
+            DeviceHelper.getDeviceService().setProperties(bundle);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void openRecorder() {
+        try {
+            DeviceHelper.getDeviceService().getLogRecorder().openRecorder(new Bundle());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void closeRecorder() {
+        try {
+            DeviceHelper.getDeviceService().getLogRecorder().closeRecorder(new Bundle());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void openNFC() {
+        try {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(DeviceInfoConstrants.SYSTEM_NFC_ENABLE, true);
+            DeviceHelper.getDeviceService().setProperties(bundle);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void closeNFC() {
+        try {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(DeviceInfoConstrants.SYSTEM_NFC_DISABLE, true);
             DeviceHelper.getDeviceService().setProperties(bundle);
         } catch (RemoteException e) {
             e.printStackTrace();

@@ -147,6 +147,9 @@ public class DUKPTFragment extends Fragment {
         }
     }
 
+    /*
+     * increaseKsn needs to be called every time the device is restarted bIncrease true
+     */
     private void increaseKsn(boolean bIncrease) {
         try {
             String ksn = DeviceHelper.getPinpad().increaseKSN(getKeyIndex(), bIncrease);

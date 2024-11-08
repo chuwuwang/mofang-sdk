@@ -367,6 +367,55 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_openRecorder"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="OPEN RECORDER" />
+
+                    <Button
+                        android:id="@+id/btn_closeRecorder"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="CLOSE RECORDER"
+                        android:textSize="@dimen/size_text" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_openNFC"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="OPEN NFC" />
+
+                    <Button
+                        android:id="@+id/btn_closeNFC"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="CLOSE NFC"
+                        android:textSize="@dimen/size_text" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <TextView

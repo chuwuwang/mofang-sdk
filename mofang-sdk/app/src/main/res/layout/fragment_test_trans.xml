@@ -67,6 +67,24 @@
                     android:textColor="@color/gray"
                     android:textColorHint="@color/gray"
                     android:textSize="@dimen/font_size_small" />
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_printNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_layout"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:drawablePadding="@dimen/margin_layout"
+                    android:gravity="center|left"
+                    android:hint="print num"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:padding="@dimen/margin_layout"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/font_size_small" />
             </LinearLayout>
 
             <TextView

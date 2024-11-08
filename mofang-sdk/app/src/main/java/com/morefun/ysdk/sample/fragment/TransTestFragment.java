@@ -97,6 +97,9 @@ public class TransTestFragment extends Fragment {
     @BindView(R.id.et_testInterval)
     EditText etInterval;
 
+    @BindView(R.id.et_printNum)
+    EditText etPrintNum;
+
     @BindView(R.id.btn_start)
     Button btnStart;
 
@@ -108,6 +111,7 @@ public class TransTestFragment extends Fragment {
     private int failTimes = 0;
     private int successTimes = 0;
     private int currentTimes = 0;
+    private int mPrintNum = 1;
 
     private CountDownLatch startSignal;
 
@@ -119,6 +123,8 @@ public class TransTestFragment extends Fragment {
     private int mTestTimes = 0;
     private boolean bStop = false;
     private KeepAliveReceiver mKeepAliveReceiver;
+    private CountDownLatch printSignal;
+    private int mPrintResult = -1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -161,6 +167,12 @@ public class TransTestFragment extends Fragment {
                 return;
             }
 
+            if (TextUtils.isEmpty(etPrintNum.getText().toString())) {
+                ToastUtils.show(getContext(), "Please Input Print num");
+                return;
+            }
+
+            mPrintNum = Integer.parseInt(etPrintNum.getText().toString());
             mTestTimes = Integer.parseInt(etTestTime.getText().toString());
         } catch (Exception e) {
             e.printStackTrace();
@@ -181,7 +193,7 @@ public class TransTestFragment extends Fragment {
 
                     while (currentTimes < mTestTimes) {
                         if (bStop) {
-                            return;
+                            break;
                         }
                         try {
                             showCurrentTime();
@@ -194,6 +206,12 @@ public class TransTestFragment extends Fragment {
 
                         Thread.sleep(Integer.parseInt(etInterval.getText().toString()));
                     }
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            btnStart.setEnabled(true);
+                        }
+                    });
                     WakeLockUtil.release();
                 } catch (Exception e) {
 
@@ -243,6 +261,7 @@ public class TransTestFragment extends Fragment {
     private void stopTest() {
         try {
             bStop = true;
+            btnStart.setEnabled(true);
             stopSearch();
             endPBOC();
             getActivity().unregisterReceiver(mKeepAliveReceiver);
@@ -312,7 +331,7 @@ public class TransTestFragment extends Fragment {
             }
 
             @Override
-            public void onCardHolderInputPin(boolean isOnlinePin, int leftTimes) throws RemoteException {
+            public void onCardHolderInputPin(boolean isOnlinePin, int offlinePinType) throws RemoteException {
                 showResult(textView, "Card Holder Input Pin: " + isOnlinePin);
                 String cardNo = EmvUtil.readPan();
                 DeviceHelper.getEmvHandler().onSetCardHolderInputPin(new byte[]{0x01, 0x02, 0x03});
@@ -325,7 +344,7 @@ public class TransTestFragment extends Fragment {
 
             @Override
             public void onDisplayOfflinePin(int i) throws RemoteException {
-                showResult(textView, "onDisplayOfflinePin");
+                showResult(textView, "offline pin left times: " + i);
             }
 
             @Override
@@ -531,7 +550,6 @@ public class TransTestFragment extends Fragment {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                btnStart.setEnabled(true);
                 try {
                     iccCardReader.stopSearch();
                     rfReader.stopSearch();
@@ -622,7 +640,21 @@ public class TransTestFragment extends Fragment {
 
         if (ip.isEmpty() || etPort.getText().toString().isEmpty()) {
             if (!Build.MODEL.startsWith("MF360")) {
-                print();
+                for (int i = 0; i < mPrintNum; i++) {
+                    print();
+                }
+                if (mPrintNum > 0) {
+                    if (mPrintResult == 0) {
+                        showResult(textView, "Print Success√");
+                        showSuccessTime();
+                    } else {
+                        showFailTime();
+                        showResult(textView, "Print Fail×");
+                    }
+                } else {
+                    showSuccessTime();
+                }
+                startSignal.countDown();
             } else {
                 showSuccessTime();
                 startSignal.countDown();
@@ -640,7 +672,21 @@ public class TransTestFragment extends Fragment {
                     showResult(textView, "Connect Success");
                     if (TcpService.getInstance().send(packet)) {
                         if (!Build.MODEL.startsWith("MF360")) {
-                            print();
+                            for (int i = 0; i < mPrintNum; i++) {
+                                print();
+                            }
+                            if (mPrintNum > 0) {
+                                if (mPrintResult == 0) {
+                                    showResult(textView, "Print Success√");
+                                    showSuccessTime();
+                                } else {
+                                    showFailTime();
+                                    showResult(textView, "Print Fail×");
+                                }
+                            } else {
+                                showSuccessTime();
+                            }
+                            startSignal.countDown();
                         } else {
                             showSuccessTime();
                             startSignal.countDown();
@@ -670,51 +716,29 @@ public class TransTestFragment extends Fragment {
 
     private void print() {
         try {
+            printSignal = new CountDownLatch(1);
             Bundle localBundle = new Bundle();
-            SystemClock.sleep(500L);
             ArrayList localArrayList = new ArrayList();
-            MulPrintStrEntity localMulPrintStrEntity = new MulPrintStrEntity("POS purchase order", 1);
-            localMulPrintStrEntity.setBitmap(FileUtil.getImageFromAssetsFile(getContext(), "printer.bmp"));
+            MulPrintStrEntity localMulPrintStrEntity = new MulPrintStrEntity("", 1);
+            localMulPrintStrEntity.setBitmap(FileUtil.getImageFromAssetsFile(getContext(), "network.bmp"));
             localMulPrintStrEntity.setMarginX(50);
             localMulPrintStrEntity.setGravity(30);
             localMulPrintStrEntity.setUnderline(true);
             localMulPrintStrEntity.setYspace(30);
             localArrayList.add(localMulPrintStrEntity);
-            localArrayList.add(new MulPrintStrEntity("=====================", 1));
-            localArrayList.add(new MulPrintStrEntity("MERCHANT NAME：Demo shop name", 1));
-            localArrayList.add(new MulPrintStrEntity("MERCHANT NO.：20321545656687", 1));
-            localArrayList.add(new MulPrintStrEntity("TERMINAL NO.：25689753", 1));
-            localArrayList.add(new MulPrintStrEntity("CARD NUMBER", 1));
-            localArrayList.add(new MulPrintStrEntity("62179390*****3426", 1));
-            localArrayList.add(new MulPrintStrEntity("TRANS TYPE", 1));
-            localArrayList.add(new MulPrintStrEntity("SALE", 1));
-            localArrayList.add(new MulPrintStrEntity("EXP DATE：2029", 1));
-            localArrayList.add(new MulPrintStrEntity("BATCH NO：000012", 1));
-            localArrayList.add(new MulPrintStrEntity("VOUCHER NO：000001", 1));
-            localArrayList.add(new MulPrintStrEntity("DATE/TIME：" + getCurrentTime("yyyy-MM-dd HH:mm:ss"), 1));
-            localArrayList.add(new MulPrintStrEntity("AMOUNT", 1));
-            localArrayList.add(new MulPrintStrEntity("==========================", 1));
-            localArrayList.add(new MulPrintStrEntity("\n", 1));
-            localArrayList.add(new MulPrintStrEntity("CARD HOLDER SIGNATURE", 1));
-            localArrayList.add(new MulPrintStrEntity("\n", 1));
-            localArrayList.add(new MulPrintStrEntity("--------------------------------------", 1));
-            localArrayList.add(new MulPrintStrEntity(" I ACKNOWLEDGE\tSATISFACTORY RECEIPT OF RELATIVE GOODS/SERVICES", 1));
-            localArrayList.add(new MulPrintStrEntity(" MERCHANT COPY ", 1));
-            localArrayList.add(new MulPrintStrEntity("---X---X---X---X---X--X--X--X--X--X--\n", 1));
-            localArrayList.add(new MulPrintStrEntity("\n", 1));
 
             DeviceHelper.getPrinter().printStr(localArrayList, new OnPrintListener.Stub() {
                 public void onPrintResult(int retCode) throws RemoteException {
-                    if (retCode == 0) {
-                        showResult(textView, "Print Success√");
-                        showSuccessTime();
-                    } else {
-                        showFailTime();
-                        showResult(textView, "Print Fail×");
-                    }
-                    startSignal.countDown();
+                    mPrintResult = retCode;
+                    printSignal.countDown();
                 }
             }, localBundle);
+
+            try {
+                printSignal.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         } catch (RemoteException e) {
             e.printStackTrace();
         }

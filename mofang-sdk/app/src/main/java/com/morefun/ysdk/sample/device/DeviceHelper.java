@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.RemoteException;
 import android.util.Log;
 
+import com.morefun.yapi.card.at24cxx.IAT24CxxCard;
 import com.morefun.yapi.card.cpu.CPUCardHandler;
 import com.morefun.yapi.card.cpu.CPUTypeAHandler;
 import com.morefun.yapi.card.emulate.EmulateCardHandler;
@@ -70,6 +71,7 @@ public class DeviceHelper {
     private static SerialPort usbSerialPort;
     private static IDukpt dukpt;
     private static TpmManager tpmManager;
+    private static IAT24CxxCard at24CxxCard;
 
     @SuppressLint("NewApi")
     public static void initDevices(MyApplication application) throws RemoteException {
@@ -94,6 +96,7 @@ public class DeviceHelper {
                 emulateCardHandler = getEmulateCardHandler();
                 dukpt = getDukpt();
                 tpmManager = getTpmManager();
+                at24CxxCard = getAT24CxxCard();
             } catch (RemoteException e) {
                 e.printStackTrace();
                 throw e;
@@ -498,6 +501,20 @@ public class DeviceHelper {
         }
     }
 
+    @SuppressLint("NewApi")
+    public static IAT24CxxCard getAT24CxxCard() throws RemoteException {
+        if (at24CxxCard == null) {
+            checkState();
+            try {
+                return application.getDeviceService().getAT24CxxCard();
+            } catch (RemoteException e) {
+                throw new RemoteException("Tpm service acquisition failed, please try again later.");
+            }
+        } else {
+            return at24CxxCard;
+        }
+    }
+
 
     public static void reset() {
         pinpad = null;
@@ -518,6 +535,7 @@ public class DeviceHelper {
         usbSerialPort = null;
         dukpt = null;
         tpmManager = null;
+        at24CxxCard = null;
     }
 
 }

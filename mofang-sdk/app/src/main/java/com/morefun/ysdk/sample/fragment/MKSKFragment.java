@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -328,51 +329,64 @@ public class MKSKFragment extends Fragment {
 
 
     private void inputPin() {
-        byte[] panBlock = "6214831082518233".getBytes();
-        Bundle bundle = new Bundle();
-        bundle.putBoolean(PinPadConstrants.COMMON_NEW_LAYOUT, false);
-        bundle.putBoolean(PinPadConstrants.COMMON_SUPPORT_KEYVOICE, true);
-        bundle.putBoolean(PinPadConstrants.COMMON_SUPPORT_BYPASS, false);
-        bundle.putBoolean(PinPadConstrants.COMMON_IS_RANDOM, false);
-        if (Build.MODEL.equals("MF960")) {
-            bundle.putBoolean(PinPadConstrants.COMMON_IS_PHYSICAL_KEYBOARD, true);
-        }
-
-        if (Build.MODEL.equals("H9PRO")) {
-            bundle.putBoolean(PinPadConstrants.COMMON_IS_PHYSICAL_KEYBOARD, true);
-        }
-
-        bundle.putIntArray(PinPadConstrants.NUMBER_TEXT_COLOR, new int[] {Color.BLACK, Color.BLACK, Color.BLACK,
-                Color.BLACK, Color.BLACK, Color.BLACK,
-                Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK});
-
-        bundle.putString(PinPadConstrants.TITLE_HEAD_CONTENT, "Please input the online pin");
-
-        try {
-            int minLength = 4;
-            int maxLength = 6;
-            DeviceHelper.getPinpad().setTimeOut(10);
-            DeviceHelper.getPinpad().setSupportPinLen(new int[]{minLength, maxLength});
-            DeviceHelper.getPinpad().inputOnlinePin(bundle, panBlock, WORK_KEY_INDEX, PinAlgorithmMode.ISO9564FMT1, new OnPinPadInputListener.Stub() {
-                @Override
-                public void onInputResult(int ret, byte[] pinBlock, String ksn) throws RemoteException {
-                    if (ret == ServiceResult.TimeOut) {
-                        DialogUtils.showAlertDialog(getActivity(), "Timeout");
-                    } else {
-                        DialogUtils.showAlertDialog(getActivity(),
-                                String.format("RESULT:%d\nPIN BLOCK:%s\n", ret, HexUtil.bytesToHexString(pinBlock)));
-                    }
+        DialogUtils.showDropdownDialog(getContext(), "Please select layout id", R.array.pinpad_layout, new DialogUtils.OnSelectListener() {
+            @Override
+            public void onSelect(int position) {
+                byte[] panBlock = "6214831082518233".getBytes();
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(PinPadConstrants.COMMON_SUPPORT_KEYVOICE, true);
+                bundle.putBoolean(PinPadConstrants.COMMON_SUPPORT_BYPASS, false);
+                bundle.putBoolean(PinPadConstrants.COMMON_IS_RANDOM, true);
+                if (Build.MODEL.equals("MF960")) {
+                    bundle.putBoolean(PinPadConstrants.COMMON_IS_PHYSICAL_KEYBOARD, true);
                 }
 
-                @Override
-                public void onSendKey(byte keyCode) throws RemoteException {
+                if (Build.MODEL.equals("H9PRO")) {
+                    bundle.putBoolean(PinPadConstrants.COMMON_IS_PHYSICAL_KEYBOARD, true);
                 }
 
-            });
-        } catch (RemoteException e) {
+                bundle.putIntArray(PinPadConstrants.NUMBER_TEXT_COLOR, new int[] {Color.BLACK, Color.BLACK, Color.BLACK,
+                        Color.BLACK, Color.BLACK, Color.BLACK,
+                        Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK});
 
-        }
 
+                bundle.putInt(PinPadConstrants.COMMON_LAYOUT_ID, position);
+                if (position == 3) {
+                    bundle.putString(PinPadConstrants.COMMON_LINE1_TEXT_CONTENT, "Purchase");
+                    bundle.putString(PinPadConstrants.COMMON_LINE2_TEXT_CONTENT, "Amount");
+                    bundle.putString(PinPadConstrants.COMMON_LINE3_TEXT_CONTENT, "$20,000.00");
+                    bundle.putString(PinPadConstrants.COMMON_LINE4_TEXT_CONTENT, "506117******8031");
+                }
+
+                bundle.putString(PinPadConstrants.TITLE_HEAD_CONTENT, "Enter Online Pin");
+
+                try {
+                    int minLength = 4;
+                    int maxLength = 6;
+                    DeviceHelper.getPinpad().setTimeOut(60);
+                    DeviceHelper.getPinpad().setSupportPinLen(new int[]{minLength, maxLength});
+                    DeviceHelper.getPinpad().inputOnlinePin(bundle, panBlock, WORK_KEY_INDEX, PinAlgorithmMode.ISO9564FMT1, new OnPinPadInputListener.Stub() {
+                        @Override
+                        public void onInputResult(int ret, byte[] pinBlock, String ksn) throws RemoteException {
+                            if (ret == ServiceResult.TimeOut) {
+                                DialogUtils.showAlertDialog(getActivity(), "Timeout");
+                            } else {
+                                DialogUtils.showAlertDialog(getActivity(),
+                                        String.format("RESULT:%d\nPIN BLOCK:%s\n", ret, HexUtil.bytesToHexString(pinBlock)));
+                            }
+                        }
+
+                        @Override
+                        public void onSendKey(byte keyCode) throws RemoteException {
+                            Log.w(TAG, "onSendKey:" + keyCode);
+                        }
+
+                    });
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private void pinBlock() {

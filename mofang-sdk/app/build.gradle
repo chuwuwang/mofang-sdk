@@ -3,7 +3,6 @@ apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 29
-
     defaultConfig {
         applicationId "com.morefun.ysdk.sample"
         minSdkVersion 21
@@ -22,12 +21,10 @@ android {
             outputFileName = "YDemo-" + versionName + ".apk"
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES.txt'
         exclude 'META-INF/LICENSE.txt'
@@ -43,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'])
+    implementation fileTree(include: ['*.aar', '*.jar'], dir: 'libs')
     implementation 'com.google.zxing:core:3.3.0'
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.annotation:annotation:1.0.0'
@@ -52,5 +49,5 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
-    //implementation 'com.leon:lfilepickerlibrary:1.8.0'
+    // implementation 'com.leon:lfilepickerlibrary:1.8.0'
 }

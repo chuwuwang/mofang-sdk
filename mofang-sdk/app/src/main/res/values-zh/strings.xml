@@ -29,6 +29,7 @@
     <string name="menu_emulate_card">模拟卡</string>
     <string name="menu_usb_serial">底座串口</string>
     <string name="menu_TPM">TPM</string>
+    <string name="menu_at24cxx">AT24Cxx</string>
 
     <string name="title_login_input_businessId">输入业务编号</string>
     <string name="title_serial_port_input">请输入要发送的数据</string>
@@ -168,4 +169,10 @@
 
     <string name="title_tpm_input">请输入TPM命令</string>
 
+    <string-array name="pinpad_layout">
+        <item>layout 0</item>
+        <item>layout 1</item>
+        <item>layout 2</item>
+        <item>layout 3</item>
+    </string-array>
 </resources>

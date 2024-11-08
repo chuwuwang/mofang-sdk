@@ -28,6 +28,7 @@
     <string name="menu_emulate_card">EMULATE CARD</string>
     <string name="menu_usb_serial">USB SERIAL</string>
     <string name="menu_TPM">TPM</string>
+    <string name="menu_at24cxx">AT24Cxx</string>
 
     <string name="title_login_input_businessId">Input Business Id</string>
     <string name="title_serial_port_input">Please Input Data</string>
@@ -170,4 +171,11 @@
 
     <string name="title_tpm_input">Please Input command</string>
 
+
+    <string-array name="pinpad_layout">
+        <item>layout 0</item>
+        <item>layout 1</item>
+        <item>layout 2</item>
+        <item>layout 3</item>
+    </string-array>
 </resources>

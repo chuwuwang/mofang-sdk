@@ -1,0 +1,69 @@
+Release notes for V5.91.10
+Date: 2024/11/06
+
+1. Update emv library
+
+Release notes for V5.91.08
+Date: 2024/10/30
+
+1. Add custom password keyboard styles, layout id 3
+
+Release notes for V5.91.07
+Date: 2024/10/25
+
+1. Add custom password keyboard styles, layout id 2
+
+
+Release notes for V5.91.06
+Date: 2024/10/23
+
+1. Support NFC turn on and off
+
+
+Release notes for V5.91.03
+Date: 2024/09/27
+
+1. Add AT24Cxx card support
+2. Added content about TPM interfaces
+3. Update libmfemv.so
+
+Release notes for V5.90
+Date: 2024/09/13
+
+1. Add the national sealing port
+2. Add small screen display interface
+
+
+Release notes for V5.89
+Date: 2024/07/31
+
+1. log optimization, default card tap card without delay
+2. DUKPT AES related data encryption implementation
+
+Release notes for V5.88
+Date: 2024/07/18
+
+1. Add CBC mode
+
+Release notes for V5.87
+Date: 2024/07/04
+
+1. Add emv random trade selection Settings
+
+Release notes for V5.86
+Date: 2024/03/27
+
+1. Add the delay parameter setting of the tap card
+2. Add APP startup interface
+
+Release notes for V5.85
+Date: 2024/04/18
+
+1. Optimized code scanning supports front and rear cameras by default
+
+Release notes for V5.84
+Date: 2024/03/11
+
+1. Add mandatory sleep and set the sleep time
+
+ 

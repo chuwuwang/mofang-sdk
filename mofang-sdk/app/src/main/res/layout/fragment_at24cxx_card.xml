@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Address"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:drawablePadding="10dp"
+                    android:gravity="center|left"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:text="0"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/size_text" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Read Len"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_readLen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:digits="0123456789abcdefABCDEF"
+                    android:drawablePadding="10dp"
+                    android:gravity="center|left"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:text="256"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/size_text"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Data"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:digits="0123456789abcdefABCDEF"
+                    android:drawablePadding="10dp"
+                    android:gravity="center|left"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/size_text" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Type"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:digits="0123456789abcdefABCDEF"
+                    android:drawablePadding="10dp"
+                    android:gravity="center|left"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:text="16384"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/size_text" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Pin"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_text">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <com.morefun.ysdk.sample.view.ClearEditText
+                    android:id="@+id/et_pin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:digits="0123456789abcdefABCDEF"
+                    android:drawablePadding="10dp"
+                    android:gravity="center|left"
+                    android:imeOptions="actionNext"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/size_text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_open"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="OPEN" />
+
+                    <Button
+                        android:id="@+id/btn_close"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="CLOSE" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_read"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="READ" />
+
+                    <Button
+                        android:id="@+id/btn_write"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:text="WRITE"
+                        android:textSize="@dimen/size_text"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_setType"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="SET TYPE" />
+
+                    <Button
+                        android:id="@+id/btn_getType"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="GET TYPE" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_setPin"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="SET PIN" />
+
+                    <Button
+                        android:id="@+id/btn_getPin"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/size_text"
+                        android:text="GET PIN" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_layout"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/size_tip">
+            </TextView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

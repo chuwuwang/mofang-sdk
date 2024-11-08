@@ -1,10 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 ext.getDate = { ->
-    return Integer.parseInt(new Date().format("MMddHHmm"))
+    return Integer.parseInt( new Date().format("MMddHHmm") )
 }
-ext.getTargetYSdkVersion = { ->//该ydemo所针对的ysdk版本
-    return "5.89."
+
+ext.getTargetYSdkVersion = { ->
+    return "5.91."
 }
 
 buildscript {
